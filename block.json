@@ -1,15 +1,72 @@
 {
 	"apiVersion": 2,
-	"name": "create-block/boilerplate",
-	"title": "Boilerplate",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"name": "tl/text-box",
+	"title": "Text Box",
+	"category": "text",
+	"icon": "editor-textcolor",
+	"description": "A box of text",
+	"keyword": ["text", "paragraph"],
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
+		"spacing": {
+			"padding": true
+		}
 	},
-	"textdomain": "boilerplate",
+	"styles": [
+		{
+			"name": "squared",
+			"label": "Squared",
+			"isDefault": true
+		},
+		{
+			"name": "rounded",
+			"label": "Rounded"
+		}
+	],
+	"example": {
+		"attributes": {
+			"text": "there is some text",
+			"shadow": true
+		}
+	},
+	"textdomain": "text-box",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"alignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"shadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"shadowOpacity": {
+			"type": "number",
+			"default": 30
+		},
+		"style": {
+			"default": {
+				"spacing": {
+					"padding": {
+						"top": "var:preset|spacing|30",
+						"right": "var:preset|spacing|30",
+						"bottom": "var:preset|spacing|30",
+						"left": "var:preset|spacing|30"
+					}
+				}
+			}
+		}
+	}
 }
